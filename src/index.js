@@ -16,6 +16,8 @@ const display = (board) => {
 }
 
 const submitScore = async () => {
+  if (nameInput.value === '') return;
+  if (scoreInput.value === '') return;
   await scores.setScore({user: nameInput.value, score: scoreInput.value});
   display(scores);
 }

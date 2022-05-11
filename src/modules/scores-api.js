@@ -3,7 +3,7 @@ export default class ScoresAPI {
     this.api = api;
     this.endpoint = '';
     this.dom = dom;
-    this.scores = []; // Because making too many API calls is expensive
+    this.scores = [];
     this.getLocalEndpoint();
   }
 
@@ -52,12 +52,11 @@ export default class ScoresAPI {
         body: JSON.stringify({name: 'Daniel\'s Leaderboard'})
       })
       .then(response => response.text());
-      'MBU3sywbFckvoeDFoe5X'
       point = response.split(' ')[3];
     }
     await endpoint();
     this.endpoint = `${this.api}/games/${point}/scores`;
-    await this.#setLocalEndpoint();
+    this.#setLocalEndpoint();
   }
 
   setScore = async (data) => {

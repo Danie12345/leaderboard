@@ -11,14 +11,20 @@ const board = document.getElementById('board');
 const api = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api';
 const scores = new ScoresAPI(api, board);
 
-refreshBtn.addEventListener('click', () => {
-  scores.getScores();
-  scores.displayDOM();
+const display = (board) => {
+  board.displayDOM();
+}
+
+const submitScore = async () => {
+  await scores.setScore({user: nameInput.value, score: scoreInput.value});
+  display(scores);
+}
+
+refreshBtn.addEventListener('click', async () => {
+  await scores.getScores();
+  display(scores);
 });
 
-submitBtn.addEventListener('click', () => {
-  scores.setScore({name: nameInput.value, score: scoreInput.value});
-  scores.displayDOM();
-});
+submitBtn.addEventListener('click', submitScore);
 
-window.addEventListener('load', () => {submitBtn.dispatchEvent(new Event('click'))});
+window.addEventListener('load', () => {refreshBtn.dispatchEvent(new Event('click'))});

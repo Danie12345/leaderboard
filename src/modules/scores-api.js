@@ -17,11 +17,20 @@ export default class ScoresAPI {
   
   displayDOM = () => {
     this.dom.innerHTML = '';
+    if (this.scores.length == 0) {
+      const li = document.createElement('li');
+      li.setAttribute('class', 'score');
+      li.setAttribute('tabindex', '0');
+      li.innerHTML = 'No elements found :C';
+      this.dom.appendChild(li);
+      return;
+    }
+    this.scores = this.scores.sort((a, b) => b.score - a.score);
     this.scores.forEach((item) => {
       const li = document.createElement('li');
       li.setAttribute('class', 'score');
       li.setAttribute('tabindex', '0');
-      li.innerHTML = `${item.name}: ${item.score}`;
+      li.innerHTML = `${item.user}: ${item.score}`;
       this.dom.appendChild(li);
     });
   }
@@ -47,7 +56,7 @@ export default class ScoresAPI {
       point = response.split(' ')[3];
     }
     await endpoint();
-    this.endpoint = `${this.api}/${point}/scores`;
+    this.endpoint = `${this.api}/games/${point}/scores`;
     await this.#setLocalEndpoint();
   }
 
@@ -61,12 +70,10 @@ export default class ScoresAPI {
   }
   
   getScores = async () => {
-    this.scores = await fetch(this.endpoint)
+    const scores = await fetch(this.endpoint)
     .then(
-      (response) => {console.log(response); response.json()},
-      (error) => {console.log(error, 'LOL')}
-    )
-    .response;
-    // console.log(this.scores)
+      response => response.json(),
+    );
+    this.scores = scores.result;
   }
 }

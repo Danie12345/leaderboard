@@ -13,14 +13,16 @@ const scores = new ScoresAPI(api, board);
 
 const display = (board) => {
   board.displayDOM();
-}
+};
 
 const submitScore = async () => {
   if (nameInput.value === '') return;
   if (scoreInput.value === '') return;
-  await scores.setScore({user: nameInput.value, score: scoreInput.value});
+  const data = { user: nameInput.value, score: scoreInput.value };
+  if (scores.scores.indexOf(data) !== -1) return;
+  await scores.setScore(data);
   display(scores);
-}
+};
 
 refreshBtn.addEventListener('click', async () => {
   await scores.getScores();
@@ -29,4 +31,4 @@ refreshBtn.addEventListener('click', async () => {
 
 submitBtn.addEventListener('click', submitScore);
 
-window.addEventListener('load', () => {refreshBtn.dispatchEvent(new Event('click'))});
+window.addEventListener('load', () => { refreshBtn.dispatchEvent(new Event('click')); });

@@ -4,20 +4,21 @@ export default class ScoresAPI {
     this.endpoint = '';
     this.dom = dom;
     this.scores = [];
+    this.localEndName = 'endpoint';
     this.getLocalEndpoint();
   }
 
   #getLocalEndpoint() {
-    this.endpoint = JSON.parse(localStorage.getItem('endpoint'));
+    this.endpoint = JSON.parse(localStorage.getItem(this.localEndName));
   }
-  
+
   #setLocalEndpoint() {
-    localStorage.setItem('endpoint', JSON.stringify(this.endpoint));
+    localStorage.setItem(this.localEndName, JSON.stringify(this.endpoint));
   }
-  
+
   displayDOM = () => {
     this.dom.innerHTML = '';
-    if (this.scores.length == 0) {
+    if (this.scores.length === 0) {
       const li = document.createElement('li');
       li.setAttribute('class', 'score');
       li.setAttribute('tabindex', '0');
@@ -34,9 +35,9 @@ export default class ScoresAPI {
       this.dom.appendChild(li);
     });
   }
-  
+
   getLocalEndpoint() {
-    if (localStorage.getItem('endpoint') !== null) {
+    if (localStorage.getItem(this.localEndName) !== null) {
       this.#getLocalEndpoint();
       return;
     }
@@ -48,12 +49,12 @@ export default class ScoresAPI {
     const endpoint = async () => {
       const response = await fetch(`${this.api}/games/`, {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({name: 'Daniel\'s Leaderboard'})
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: 'Daniel\'s Leaderboard' }),
       })
-      .then(response => response.text());
-      point = response.split(' ')[3];
-    }
+        .then((response) => response.text());
+      [point] = response.split(' ').filter((item) => item.length === 20);
+    };
     await endpoint();
     this.endpoint = `${this.api}/games/${point}/scores`;
     this.#setLocalEndpoint();
@@ -62,17 +63,17 @@ export default class ScoresAPI {
   setScore = async (data) => {
     await fetch(this.endpoint, {
       method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(data)
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
     });
     this.scores.push(data);
   }
-  
+
   getScores = async () => {
     const scores = await fetch(this.endpoint)
-    .then(
-      response => response.json(),
-    );
+      .then(
+        (response) => response.json(),
+      );
     this.scores = scores.result;
   }
 }

@@ -1,22 +1,21 @@
 .sky {
   height: calc(max(200vh, 200vw));
   width: calc(max(200vh, 200vw));
-  top: -80vh;
-  left: -100vh;
+  top: -100vh;
+  left: -50vw;
   position: absolute;
-  background-image: linear-gradient(rgb(255, 0, 0, 0.1), rgb(0, 0, 255, 1.3));
+  /* background-image: linear-gradient(rgb(255, 0, 0, 0.1), rgb(0, 0, 255, 1.3)); */
   z-index: -100;
   border: none;
   border-radius: 50%;
   outline: none;
-  animation: spin 84s linear infinite;
 }
 
 .sun {
   height: 120px;
   width: 120px;
   position: absolute;
-  top: 20%;
+  top: 25%;
   left: 50%;
   background-image: radial-gradient(white, rgb(241, 241, 168), rgb(241, 241, 139), rgb(247, 199, 110));
   border: none;
@@ -29,33 +28,15 @@
   z-index: -99;
 }
 
-/* #inputs {
-  animation: spin 10s linear infinite;
-}
-
-#submit {
-  animation: move 8s forwards infinite;
-} */
-
-@keyframes spin { 
-  100% { 
-      -webkit-transform: rotate(-360deg); 
-      transform:rotate(-360deg);
-  } 
-}
-
-@keyframes move {
-  0% {
-    transform: translate(0px);
-  }
-
-  50% {
-    transform: translate(-516%);
-  }
-
-  100% {
-    transform: translate(0px);
-  }
+.farm {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  z-index: -98;
+  background-image: url('../images/farm-background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 @keyframes flicker {

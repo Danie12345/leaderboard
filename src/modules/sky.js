@@ -18,7 +18,7 @@ const newCloud = () => {
 for (let i = 0; i < 50; i += 1) {
   const star = newStar();
   star.classList.add('star');
-  star.style.animation = `flicker ${Math.random()*Math.random()*10}s ease alternate infinite`;
+  star.style.animation = `flicker ${Math.random()*10}s ease alternate infinite`;
   star.style.position = 'absolute';
   let [x, y] = [Math.random()*100, 60 + Math.random()*40];
   star.style.top = `${y}%`;

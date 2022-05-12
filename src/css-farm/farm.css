@@ -9,20 +9,24 @@
   border: none;
   border-radius: 50%;
   outline: none;
-  animation: spin 86400s linear infinite;
+  animation: spin 84s linear infinite;
 }
 
 .sun {
   height: 120px;
   width: 120px;
   position: absolute;
-  top: 25%;
-  left: 57%;
+  top: 20%;
+  left: 50%;
   background-image: radial-gradient(white, rgb(241, 241, 168), rgb(241, 241, 139), rgb(247, 199, 110));
   border: none;
   border-radius: 50%;
   outline: none;
-  box-shadow: 0px 0px 100px rgb(255, 194, 102);
+  box-shadow: 0px 0px 100px rgb(217, 255, 0);
+}
+
+.star {
+  z-index: -99;
 }
 
 /* #inputs {
@@ -51,5 +55,14 @@
 
   100% {
     transform: translate(0px);
+  }
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }

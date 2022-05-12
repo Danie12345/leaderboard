@@ -77,7 +77,7 @@ h2 {
   flex-direction: column;
   align-content: space-around;
   height: auto;
-  max-height: 80vh;
+  max-height: calc(8 * calc(35px + 8px));
   overflow-y: auto;
   border: 1px solid rgb(0, 0, 0, 0.3);
   border-radius: 3px;

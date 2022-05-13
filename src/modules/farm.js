@@ -29,8 +29,7 @@ const fade = (el, start, end, duration) => {
 };
 
 const skyUpdate = () => {
-  // deg = 15 * secs * tickRate / 3600;
-  deg -= 1
+  deg = 15 * secs * tickRate;
   sky.style.transform = `rotate(${deg}deg)`;
   fade(sky, {r: 10, g: 40, b: 160}, {r: 210, g: 240, b: 190}, 10);
 }

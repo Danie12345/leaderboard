@@ -37,6 +37,7 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  align-items: flex-start;
   flex-wrap: wrap;
 }
 
@@ -45,6 +46,10 @@ main {
   flex-direction: column;
   width: 320px;
   margin: 12px;
+  padding: 12px;
+  box-sizing: content-box;
+  background-color: rgba(241, 245, 248, 0.7);
+  border-radius: 4px;
 }
 
 .top {
@@ -79,7 +84,7 @@ h2 {
   flex-direction: column;
   align-content: space-around;
   height: auto;
-  max-height: calc(8 * calc(35px + 8px));
+  max-height: calc(8 * calc(35px + 9px) - 2px);
   overflow-y: auto;
   border: 1px solid rgb(0, 0, 0, 0.3);
   border-radius: 3px;
@@ -123,4 +128,20 @@ input {
 
 input:focus {
   outline: 1px solid rgb(0, 0, 0, 0.15);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(241, 241, 241, 0.2); 
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(168, 168, 168); 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(139, 139, 139); 
 }

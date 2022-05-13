@@ -11,7 +11,7 @@ const newStar = () => {
 
 const newCloud = (angle) => {
   const cloud = document.createElement('div');
-  for (let i = Math.round(Math.random()*1); i >= 1; i -= 1) {
+  for (let i = Math.round(Math.random()*3); i >= 1; i -= 1) {
     const bump = document.createElement('div');
     let [x, y] = [Math.random()*30, Math.random()*30];
     bump.style.position = 'absolute';
@@ -48,7 +48,7 @@ const makeStars = () => {
 
 function makeClouds() {
   let rad = sky.offsetWidth / 2;
-  for (let i = 0; i < 80; i += 1) {
+  for (let i = 0; i < 160; i += 1) {
     let angle = Math.random() * 360;
     let mag = Math.random() * rad * .5 + rad*.4;
     let [x, y] = [Math.cos(angle * Math.PI / 180) * mag, Math.sin(angle * Math.PI / 180) * mag];

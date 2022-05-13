@@ -7,8 +7,10 @@ start();
 
 const farmSong = new Audio(sound);
 
-const refreshBtn = document.getElementById('refresh');
+const toggleMute = document.getElementById('toggle-mute');
+let isMuted = true;
 const endpointToggle = document.getElementById('toggle-endpoint');
+const refreshBtn = document.getElementById('refresh');
 
 const nameInput = document.getElementById('name');
 const scoreInput = document.getElementById('score');
@@ -34,9 +36,10 @@ const submitScore = async () => {
   display(scores);
 };
 
-refreshBtn.addEventListener('click', async () => {
-  await scores.getScores();
-  display(scores);
+toggleMute.addEventListener('click', () => {
+  isMuted = !isMuted;
+  toggleMute.style.filter = `invert(${isMuted * 1 + !isMuted * 0})`;
+  farmSong.muted = isMuted;
 });
 
 endpointToggle.addEventListener('click', () => {
@@ -46,10 +49,15 @@ endpointToggle.addEventListener('click', () => {
   refreshBtn.dispatchEvent(new Event('click'));
 });
 
+refreshBtn.addEventListener('click', async () => {
+  await scores.getScores();
+  display(scores);
+});
+
 submitBtn.addEventListener('click', submitScore);
 
 document.addEventListener('mousemove', () => {
   farmSong.play();
 });
 
-window.addEventListener('load', () => { refreshBtn.dispatchEvent(new Event('click')); });
+window.addEventListener('load', () => { refreshBtn.dispatchEvent(new Event('click')); farmSong.loop = true; });

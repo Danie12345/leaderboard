@@ -3,17 +3,21 @@
   width: calc(max(200vh, 200vw));
   top: -100vh;
   left: -50vw;
+  /* height: 80vh;
+  width: 80vh;
+  top: 0vh;
+  left: 0vw; */
   position: absolute;
   background-image: 
-  linear-gradient(0deg, rgba(52, 6, 95, 0.973), rgba(52, 6, 95, 0) 80.71%),
+  linear-gradient(0deg, rgba(19, 2, 34, 0.973), rgba(52, 6, 95, 0) 80.71%),
   linear-gradient(180deg, rgb(195, 251, 255), rgba(195, 251, 255, 0) 100.71%),
   linear-gradient(120deg, rgb(240, 191, 203), rgba(235, 186, 123, 0) 60.71%),
-  linear-gradient(240deg, rgba(235, 186, 123, 0.8), rgba(235, 186, 123, 0) 60.71%)
-  ;
+  linear-gradient(240deg, rgba(235, 186, 123, 0.8), rgba(235, 186, 123, 0) 60.71%);
   z-index: -100;
   border: none;
   border-radius: 50%;
   outline: none;
+  /* color: #a5a5a5; */
 }
 
 .sun {
@@ -27,6 +31,7 @@
   border-radius: 50%;
   outline: none;
   box-shadow: 0px 0px 100px rgb(217, 255, 0);
+  z-index: -98;
 }
 
 .star {
@@ -34,12 +39,16 @@
   background-color: white;
 }
 
+.cloud {
+  z-index: -97;
+}
+
 .farm {
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0%;
-  z-index: -98;
+  z-index: -96;
   background-image: url('../images/farm-background.png');
   background-repeat: no-repeat;
   background-size: cover;

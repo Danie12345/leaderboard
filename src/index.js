@@ -25,6 +25,8 @@ const submitScore = async () => {
   if (scoreInput.value === '') return;
   const data = { user: nameInput.value, score: scoreInput.value };
   if (scores.scores.indexOf(data) !== -1) return;
+  nameInput.value = '';
+  scoreInput.value = '';
   await scores.setScore(data);
   display(scores);
 };

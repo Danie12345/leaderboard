@@ -15,7 +15,7 @@ const newCloud = () => {
   return cloud;
 }
 
-for (let i = 0; i < 50; i += 1) {
+for (let i = 0; i < 100; i += 1) {
   const star = newStar();
   star.classList.add('star');
   star.style.animation = `flicker ${Math.random()*10}s ease alternate infinite`;
@@ -23,9 +23,9 @@ for (let i = 0; i < 50; i += 1) {
   let [x, y] = [Math.random()*100, 60 + Math.random()*40];
   star.style.top = `${y}%`;
   star.style.left = `${x}%`;
-  star.style.width = `${x/5}px`;
-  star.style.height = `${y/5}px`;
-  star.style.borderRadius = `${Math.random()*10}px`;
+  star.style.width = `${x/16}px`;
+  star.style.height = `${x/16}px`;
+  star.style.borderRadius = '50%';
   sky.appendChild(star);
 }
 

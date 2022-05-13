@@ -42,6 +42,9 @@ Feel free to check the [issues](https://github.com/Danie12345/leaderboard/issues
 
 Give a ⭐️ if you like this project!
 
+## Music Credits
+- Delicate Steve - [Crops](https://www.youtube.com/watch?v=K11_8mgay8E) on YouTube.
+
 ## 📝 License
 
 This project is [MIT](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt) licensed.

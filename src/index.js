@@ -1,8 +1,11 @@
 import './index.css';
 import ScoresAPI from './modules/scores-api.js';
 import start from './modules/farm.js';
+import sound from './sound/farm.mp3';
 
 start();
+
+const farmSong = new Audio(sound);
 
 const refreshBtn = document.getElementById('refresh');
 const endpointToggle = document.getElementById('toggle-endpoint');
@@ -44,5 +47,9 @@ endpointToggle.addEventListener('click', () => {
 });
 
 submitBtn.addEventListener('click', submitScore);
+
+document.addEventListener('mousemove', () => {
+  farmSong.play();
+});
 
 window.addEventListener('load', () => { refreshBtn.dispatchEvent(new Event('click')); });

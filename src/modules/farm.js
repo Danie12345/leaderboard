@@ -1,4 +1,4 @@
-import { sky } from './sky.js';
+import sky from './sky.js';
 
 const farmBack = document.createElement('div');
 farmBack.classList.add('farm');
@@ -26,4 +26,4 @@ const start = () => {
   setInterval(tick, tickRate);
 };
 
-export { start };
+export default start;

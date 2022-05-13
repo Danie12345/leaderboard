@@ -1,6 +1,6 @@
 import './index.css';
 import ScoresAPI from './modules/scores-api.js';
-import { start } from './modules/farm.js';
+import start from './modules/farm.js';
 
 start();
 

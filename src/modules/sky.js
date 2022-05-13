@@ -76,4 +76,4 @@ window.addEventListener('load', () => {
   makeClouds();
 });
 
-export { sky };
+export default sky;

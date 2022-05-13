@@ -135,13 +135,13 @@ input:focus {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgb(241, 241, 241, 0.2); 
+  background: rgb(241, 241, 241, 0.2);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(168, 168, 168); 
+  background: rgb(168, 168, 168);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(139, 139, 139); 
+  background: rgb(139, 139, 139);
 }

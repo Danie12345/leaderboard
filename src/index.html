@@ -9,12 +9,14 @@
   </head>
   <body>
     <header>
-      <h1>Leaderboard</h1>
+      <h1>Egg Inc. Leaderboard</h1>
     </header>
     <main>
       <div class="section" id="board-container">
         <div class="top">
           <h2>Recent Scores</h2>
+          <button id="toggle-mute" type="button" class="btn"><i class="fa-solid fa-music"></i></button>
+          <button id="toggle-endpoint" type="button" class="btn">Internet</button>
           <button id="refresh" type="button" class="btn">Refresh</button>
         </div>
         <ul id="board">
@@ -32,5 +34,6 @@
         </div>
       </div>
     </main>
+    <div id="game-background"></div>
   </body>
 </html>

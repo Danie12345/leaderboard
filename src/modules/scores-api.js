@@ -1,10 +1,12 @@
 export default class ScoresAPI {
-  constructor(api, dom) {
+  constructor(api, dom, uniendpoint = '', uniendpointUse = false) {
     this.api = api;
     this.endpoint = '';
     this.dom = dom;
     this.scores = [];
     this.localEndName = 'endpoint';
+    this.uniendpoint = uniendpoint;
+    this.uniendpointUse = uniendpointUse;
     this.getLocalEndpoint();
   }
 
@@ -37,6 +39,10 @@ export default class ScoresAPI {
   }
 
   getLocalEndpoint() {
+    if (this.uniendpointUse) {
+      this.endpoint = this.uniendpoint;
+      return;
+    }
     if (localStorage.getItem(this.localEndName) !== null) {
       this.#getLocalEndpoint();
       return;

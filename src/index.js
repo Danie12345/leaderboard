@@ -5,6 +5,7 @@ import start from './modules/farm.js';
 start();
 
 const refreshBtn = document.getElementById('refresh');
+const endpointToggle = document.getElementById('toggle-endpoint');
 
 const nameInput = document.getElementById('name');
 const scoreInput = document.getElementById('score');
@@ -12,7 +13,8 @@ const submitBtn = document.getElementById('submit');
 const board = document.getElementById('board');
 
 const api = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api';
-const scores = new ScoresAPI(api, board);
+const universalEndpoint = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/648X8vEZi7IFlFzPwsx9/scores';
+const scores = new ScoresAPI(api, board, universalEndpoint, true);
 
 const display = (board) => {
   board.displayDOM();
@@ -30,6 +32,13 @@ const submitScore = async () => {
 refreshBtn.addEventListener('click', async () => {
   await scores.getScores();
   display(scores);
+});
+
+endpointToggle.addEventListener('click', () => {
+  scores.uniendpointUse = !scores.uniendpointUse;
+  scores.getLocalEndpoint();
+  endpointToggle.innerHTML = { true: 'Internet', false: 'LAN' }[scores.uniendpointUse];
+  refreshBtn.dispatchEvent(new Event('click'));
 });
 
 submitBtn.addEventListener('click', submitScore);
